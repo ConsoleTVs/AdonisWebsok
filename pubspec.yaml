@@ -1,0 +1,18 @@
+name: adonis_websok
+description: Adonis (adonisjs) high level web sockets. Implements the websocket protocol specified by adonisjs.
+version: 1.0.0
+author: Èrik Campobadal Forés <soc@erik.cat>
+homepage: https://erik.cat
+repository: https://github.com/ConsoleTVs/AdonisWebsok
+documentation: https://github.com/ConsoleTVs/AdonisWebsok
+issue_tracker: https://github.com/ConsoleTVs/AdonisWebsok/issues
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  meta: ^1.1.8
+  websok: ^2.1.1
+
+dev_dependencies:
+  test: ^1.9.4
