@@ -271,18 +271,20 @@ abstract class AdonisWebsok<S extends Websok> {
           this.subscriptions.remove(topic);
           return true;
         }
-        Future.error(actionRequest.reason);
+        return Future.error(actionRequest.reason);
       }
       return Future(() => this.unsubscribe(topic, actionRequest));
     }
     // Send an action request.
     final action = AWActionRequest((action, type, data) {
-      if (action.completed)
+      if (action.completed) {
         return;
-      else if (type == PacketType.leave_ack && data['topic'] == topic)
+      }
+      else if (type == PacketType.leave_ack && data['topic'] == topic) {
         action.accept();
-      else if (type == PacketType.leave_error && data['topic'] == topic)
+      } else if (type == PacketType.leave_error && data['topic'] == topic) {
         action.reject(data['message']);
+      }
     });
     this.actionRequests.add(action);
     this.send(PacketType.leave, {'topic': topic});
