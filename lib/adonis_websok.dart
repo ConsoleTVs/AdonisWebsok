@@ -295,7 +295,7 @@ abstract class AdonisWebsok<S extends Websok> {
   /// Closes the conexion with the socket.
   void close() {
     this.isActive = false;
-    this.pingPong.cancel();
-    this.socket.close();
+    this.pingPong?.cancel();
+    this.socket?.close();
   }
 }
