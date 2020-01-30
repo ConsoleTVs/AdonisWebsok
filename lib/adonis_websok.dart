@@ -134,7 +134,7 @@ abstract class AdonisWebsok<S extends Websok> {
   /// Connects to the web socket and sets it up for usage.
   Future<void> connect({
     bool sendRequest = true,
-    void onError(),
+    void onError(error),
     void onDone(),
   }) async {
     if (this.isActive) return null;
